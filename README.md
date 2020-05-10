@@ -19,9 +19,6 @@ First, add ```INTERNET``` permission in manifist if you haven't added it.
     <uses-permission android:name="android.permission.INTERNET" />  <!-- add this line -->
 
     <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
            ...
            
     </application>
