@@ -45,6 +45,7 @@ get corona virus infomations by integer.
 - ```String Country``` : The value of this parameter uses [alpha-2 code](https://www.iban.com/country-codes) according to ISO 3166, and the country name must be one of those declared in [CountryCode.java](https://github.com/choiman1559/CoronaVirusInfo/blob/master/app/src/main/java/corona/virus/info/CountryCode.java).
 
 - ``` int TYPE``` : The argument should be one of those listed in the table below.
+(class : [CoronaVirusInfo](https://github.com/choiman1559/CoronaVirusInfo/blob/master/app/src/main/java/corona/virus/info/CoronaVirusInfo.java) )
     | Name  | Usage | Value |
     | ------| ----- | ----- |
     | ACTIVE | Returns the number of people currently infected | 4|
