@@ -52,3 +52,28 @@ get corona virus infomations by integer.
     | RECOVERED | Returns the number of people recovered | 5|
     | DEAD | Returns the number of people killed by the virus | 6|
     | TOTAL | Returns the total number of infected people | 7|
+
+### example
+``` 
+ public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        String str = "Corona Virus status in South Korea : \n";
+            str = str + String.format(Locale.getDefault(), "Total : %d", new CoronaVirusInfo().getInt(CountryCode.South_Korea, CoronaVirusInfo.TOTAL)) + "\n";
+            str = str + String.format(Locale.getDefault(), "Deaths : %d", new CoronaVirusInfo().getInt(CountryCode.South_Korea, CoronaVirusInfo.DEAD)) + "\n";
+            str = str + String.format(Locale.getDefault(), "Recovered : %d", new CoronaVirusInfo().getInt(CountryCode.South_Korea, CoronaVirusInfo.RECOVERED)) + "\n";
+            str = str + String.format(Locale.getDefault(), "Active : %d", new CoronaVirusInfo().getInt(CountryCode.South_Korea, CoronaVirusInfo.ACTIVE)) + "\n";
+
+        TextView textView = findViewById(R.id.textview);
+        textView.setText(str);
+    }
+}
+```
+#### example - result 
+
+<img src="https://i.imgur.com/ISprg4A.jpg" alt="drawing" width="200">
+(Result of South Korea, 2020-05-09)
