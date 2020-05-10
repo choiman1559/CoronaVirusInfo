@@ -1,4 +1,4 @@
-# CoronaVirusInfo
+# Corona Virus(covid) Infomation library
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-yellowgreen.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Release](https://img.shields.io/github/release/choiman1559/CoronaVirusInfo.svg?label=jitpack)](https://jitpack.io/#choiman1559/CoronaVirusInfo)
