@@ -7,9 +7,28 @@ this Library helps to get simple corona virus infomations via java on android.
 
 # How-to-use
 
-## 1. edit gradle
+## 1. edit gradle and manifist
 
-First, add the JitPack repository (usually to the top-level build.gradle file)
+First, add ```INTERNET``` permission in manifist if you haven't added it.
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.hello">
+
+    <uses-permission android:name="android.permission.INTERNET" />  <!-- add this line -->
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+           ...
+           
+    </application>
+</manifest>
+```
+
+Secondly, add the JitPack repository (usually to the top-level build.gradle file)
 ```
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
