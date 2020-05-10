@@ -6,7 +6,7 @@
 
 this Library helps to get simple corona virus infomations via java on android.
 
-This library is using (covid19api)[https://covid19api.com/]'s database.
+This library is using [covid19api](https://covid19api.com)'s database.
 
 # How-to-use
 
