@@ -1,4 +1,8 @@
 # CoronaVirusInfo
+
+[![License](https://img.shields.io/badge/License-Apache%202.0-yellowgreen.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Release](https://img.shields.io/github/release/choiman1559/CoronaVirusInfo.svg?label=jitpack) ](https://jitpack.io/#choiman1559/CoronaVirusInfo)
+
 this Library helps to get simple corona virus infomations via java on android.
 
 # How-to-use
@@ -76,4 +80,4 @@ get corona virus infomations by integer.
 #### example - result 
 
 <img src="https://i.imgur.com/ISprg4A.jpg" alt="drawing" width="200">
-(Result of South Korea, 2020-05-09)
+(South Korea, data as of May 09, 2020)
