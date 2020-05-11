@@ -87,11 +87,11 @@ public class CoronaVirusInfo {
         if(Country.equals("")) switch (TYPE) {
             case ACTIVE:
                 return Integer.parseInt(Between(lines[3], ": ", ",")) -
-                        (Integer.parseInt(Between(lines[7], ": ", "\n||\r")) +
+                        (Integer.parseInt(Between(lines[7], ": ", ",")) +
                                 Integer.parseInt(Between(lines[5], ": ", ",")));
 
             case RECOVERED:
-                return Integer.parseInt(Between(lines[7], ": ", "\n||\r"));
+                return Integer.parseInt(Between(lines[7], ": ", ","));
 
             case DEAD:
                 return Integer.parseInt(Between(lines[5], ": ", ","));
