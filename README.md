@@ -110,5 +110,4 @@ public class MainActivity extends AppCompatActivity {
 ```
 #### example - result 
 
-<img src="https://i.imgur.com/ISprg4A.jpg" alt="drawing" width="200">
-(South Korea, data as of May 09, 2020)
+<img src="https://i.imgur.com/jQ77yZK.jpg" alt="drawing" width="200">
