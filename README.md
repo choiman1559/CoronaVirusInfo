@@ -70,9 +70,9 @@ Corona virus information on the specified date is returned as an integer.
 
 #### arguments datails :
 
-- ```String Country``` : The value of this parameter uses [alpha-2 code](https://www.iban.com/country-codes) according to ISO 3166, and the country name must be one of those declared in [CountryCode.java](https://github.com/choiman1559/CoronaVirusInfo/blob/master/app/src/main/java/corona/virus/info/CountryCode.java).
+- ***```String Country```*** : The value of this parameter uses [alpha-2 code](https://www.iban.com/country-codes) according to ISO 3166, and the country name must be one of those declared in [CountryCode.java](https://github.com/choiman1559/CoronaVirusInfo/blob/master/app/src/main/java/corona/virus/info/CountryCode.java).
 
-- ``` int TYPE``` : The argument should be one of those listed in the table below.
+- ***``` int TYPE```*** : The argument should be one of those listed in the table below.
 (class : [CoronaVirusInfo](https://github.com/choiman1559/CoronaVirusInfo/blob/master/app/src/main/java/corona/virus/info/CoronaVirusInfo.java) )
     | Name  | Usage | Value |
     | ------| ----- | ----- |
@@ -81,22 +81,27 @@ Corona virus information on the specified date is returned as an integer.
     | DEAD | Returns the number of people killed by the virus | 6|
     | TOTAL | Returns the total number of infected people | 7|
     
-- ```Calender date``` Specifies the date of the information to be returned. The format of the date is ```yyyy-MM-dd```, and If the argument is null, ```public int getInt(String Country,int TYPE,Calender date)``` will be behave the same as ```public int getInt(String Country, int TYPE)```.
+- ***```Calender date```*** Specifies the date of the information to be returned. The format of the date is ```yyyy-MM-dd```, and If the argument is null, ```public int getInt(String Country,int TYPE,Calender date)``` will be behave the same as ```public int getInt(String Country, int TYPE)```.
 
 ### example
 ``` 
- public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        String str = "Corona Virus status in South Korea : \n";
-            str = str + String.format(Locale.getDefault(), "Total : %d", new CoronaVirusInfo().getInt(CountryCode.South_Korea, CoronaVirusInfo.TOTAL)) + "\n";
-            str = str + String.format(Locale.getDefault(), "Deaths : %d", new CoronaVirusInfo().getInt(CountryCode.South_Korea, CoronaVirusInfo.DEAD)) + "\n";
-            str = str + String.format(Locale.getDefault(), "Recovered : %d", new CoronaVirusInfo().getInt(CountryCode.South_Korea, CoronaVirusInfo.RECOVERED)) + "\n";
-            str = str + String.format(Locale.getDefault(), "Active : %d", new CoronaVirusInfo().getInt(CountryCode.South_Korea, CoronaVirusInfo.ACTIVE)) + "\n";
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.YEAR,2020);
+        cal.set(Calendar.MONTH,3);
+        cal.set(Calendar.DATE,24);
+
+        String str = "Corona Virus info example : \n";
+            str = str + "South Korea, 2020/02/11 Total confirmed : " + new CoronaVirusInfo().getInt(CountryCode.South_Korea, CoronaVirusInfo.TOTAL, cal) + "\n";
+            str = str + "Global, latest infomation of Recovered : " + new CoronaVirusInfo().getInt(CountryCode.Global, CoronaVirusInfo.DEAD) + "\n";
+            str = str + "USA, latest information of Actived : " + new CoronaVirusInfo().getInt(CountryCode.Italy, CoronaVirusInfo.ACTIVE) + "\n";
+            str = str + "Russia, 2020/02/11 Total Deaths : " + new CoronaVirusInfo().getInt(CountryCode.Russian_Federation, CoronaVirusInfo.DEAD,cal) + "\n";
 
         TextView textView = findViewById(R.id.textview);
         textView.setText(str);
