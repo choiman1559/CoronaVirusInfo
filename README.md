@@ -98,10 +98,10 @@ public class MainActivity extends AppCompatActivity {
         cal.set(Calendar.DATE,24);
 
         String str = "Corona Virus info example : \n";
-            str = str + "South Korea, 2020/02/11 Total confirmed : " + new CoronaVirusInfo().getInt(CountryCode.South_Korea, CoronaVirusInfo.TOTAL, cal) + "\n";
+            str = str + "South Korea, 2020/04/24 Total confirmed : " + new CoronaVirusInfo().getInt(CountryCode.South_Korea, CoronaVirusInfo.TOTAL, cal) + "\n";
             str = str + "Global, latest infomation of Recovered : " + new CoronaVirusInfo().getInt(CountryCode.Global, CoronaVirusInfo.DEAD) + "\n";
             str = str + "USA, latest information of Actived : " + new CoronaVirusInfo().getInt(CountryCode.Italy, CoronaVirusInfo.ACTIVE) + "\n";
-            str = str + "Russia, 2020/02/11 Total Deaths : " + new CoronaVirusInfo().getInt(CountryCode.Russian_Federation, CoronaVirusInfo.DEAD,cal) + "\n";
+            str = str + "Russia, 2020/04/24 Total Deaths : " + new CoronaVirusInfo().getInt(CountryCode.Russian_Federation, CoronaVirusInfo.DEAD,cal) + "\n";
 
         TextView textView = findViewById(R.id.textview);
         textView.setText(str);
