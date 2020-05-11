@@ -1,5 +1,7 @@
 package corona.virus.info;
 
+import android.util.Log;
+
 import androidx.annotation.IntDef;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresPermission;
@@ -70,8 +72,11 @@ public class CoronaVirusInfo {
         if (!Country.equals("") && date == null)
             return Integer.parseInt(Between(lines[lines.length - TYPE], ": ", ","));
 
+        if(date != null ) Log.d("test",new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(date));
         if (date != null) for (int i = 0; i < lines.length; i++) {
+            Log.d("test","for");
             if (lines[i].contains(new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(date))) {
+                Log.d("test",Between(lines[i - (TYPE - 3)], ": ", ","));
                 return Integer.parseInt(Between(lines[i - (TYPE - 3)], ": ", ","));
             }
         }
