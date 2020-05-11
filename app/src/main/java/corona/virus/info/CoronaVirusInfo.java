@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.Calendar;
 import java.util.Locale;
 import java.util.Objects;
 
@@ -45,7 +45,7 @@ public class CoronaVirusInfo {
     }
 
     @RequiresPermission(INTERNET)
-    public int getInt(@CountryCode.Country String Country, @TYPE int TYPE, @Nullable Date date) {
+    public int getInt(@CountryCode.Country String Country, @TYPE int TYPE, @Nullable Calendar date) {
         if(Country.equals("") && date != null) return -1;
         String url = !Country.equals("") ? "https://api.covid19api.com/country/" + Country : "https://api.covid19api.com/summary";
 
@@ -73,12 +73,15 @@ public class CoronaVirusInfo {
             return Integer.parseInt(Between(lines[lines.length - TYPE], ": ", ","));
 
         if(date != null ) Log.d("test",new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(date));
-        if (date != null) for (int i = 0; i < lines.length; i++) {
-            Log.d("test","for");
+        for (int i = 0; i < lines.length; i++) {
+            if (date != null) {
+                Log.d("test","for");
             if (lines[i].contains(new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(date))) {
-                Log.d("test",Between(lines[i - (TYPE - 3)], ": ", ","));
+                Log.d("test", Between(lines[i - (TYPE - 3)], ": ", ","));
                 return Integer.parseInt(Between(lines[i - (TYPE - 3)], ": ", ","));
+                }
             }
+            if(Country.equals("") && !lines[i].contains(",")) lines[i] = lines[i] + ",";
         }
 
         if(Country.equals("")) switch (TYPE) {
