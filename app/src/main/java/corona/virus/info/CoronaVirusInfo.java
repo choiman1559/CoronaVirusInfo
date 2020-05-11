@@ -15,6 +15,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 import java.util.Objects;
+import java.util.concurrent.TimeoutException;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -53,11 +54,7 @@ public class CoronaVirusInfo {
         okHttpClient.newCall(new Request.Builder().url(url).build()).enqueue(new Callback() {
             @Override
             public void onFailure(@NotNull Call call, @NotNull IOException ignore) {
-                try {
-                    throw new IOException(ignore.getMessage(),ignore.getCause());
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                throw new RuntimeException(ignore.getMessage(),ignore.getCause());
             }
 
             @Override
