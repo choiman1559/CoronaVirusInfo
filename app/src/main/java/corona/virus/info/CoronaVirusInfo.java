@@ -70,7 +70,7 @@ public class CoronaVirusInfo {
         if (!Country.equals("") && date == null)
             return Integer.parseInt(Between(lines[lines.length - TYPE], ": ", ","));
 
-        if (date != null) for (int i = 0; i <= lines.length; i++) {
+        if (date != null) for (int i = 0; i < lines.length; i++) {
             if (lines[i].contains(new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(date))) {
                 return Integer.parseInt(Between(lines[i - (TYPE - 3)], ": ", ","));
             }
