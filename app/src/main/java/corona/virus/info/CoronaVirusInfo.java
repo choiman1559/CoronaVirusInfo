@@ -1,18 +1,17 @@
 package corona.virus.info;
 
-import android.os.Handler;
-import android.util.Log;
-
 import androidx.annotation.IntDef;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresPermission;
 
 import org.jetbrains.annotations.NotNull;
-import org.json.JSONObject;
 
 import java.io.IOException;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 import java.util.Objects;
 
 import okhttp3.Call;
@@ -27,7 +26,8 @@ public class CoronaVirusInfo {
 
     @Retention(RetentionPolicy.SOURCE)
     @IntDef({TOTAL, ACTIVE, RECOVERED, DEAD})
-    public @interface TYPE { }
+    public @interface TYPE {
+    }
 
     public static final int ACTIVE = 4;
     public static final int RECOVERED = 5;
@@ -36,14 +36,23 @@ public class CoronaVirusInfo {
 
     volatile String temp = null;
 
+
     @RequiresPermission(INTERNET)
-    public int getInt(@Nullable @CountryCode.Country String Country, @TYPE int TYPE) {
+    public int getInt(@CountryCode.Country String Country, @TYPE int TYPE) {
+        return getInt(Country, TYPE, null);
+    }
+
+    @RequiresPermission(INTERNET)
+    public int getInt(@CountryCode.Country String Country, @TYPE int TYPE, @Nullable Date date) {
+        if(Country.equals("") && date != null) return -1;
         String url = !Country.equals("") ? "https://api.covid19api.com/country/" + Country : "https://api.covid19api.com/summary";
 
         OkHttpClient okHttpClient = new OkHttpClient();
         okHttpClient.newCall(new Request.Builder().url(url).build()).enqueue(new Callback() {
             @Override
-            public void onFailure(@NotNull Call call, @NotNull IOException ignore) { throw new RuntimeException("request Failed while get HTTP body!");}
+            public void onFailure(@NotNull Call call, @NotNull IOException ignore) {
+                throw new RuntimeException("request Failed while get HTTP body!");
+            }
 
             @Override
             public void onResponse(@NotNull Call call, @NotNull final Response response) {
@@ -54,9 +63,35 @@ public class CoronaVirusInfo {
                 }
             }
         });
-        while(temp == null) { }
+        while (temp == null) {
+        }
         String[] lines = temp.split(Objects.requireNonNull(System.getProperty("line.separator")));
-        return Integer.parseInt(Between(lines[lines.length - TYPE],": ",","));
+        if(lines[0].contains("code") && lines[0].contains("message")) throw new RuntimeException("Http error occured : " + lines[0]);
+        if (!Country.equals("") && date == null)
+            return Integer.parseInt(Between(lines[lines.length - TYPE], ": ", ","));
+
+        if (date != null) for (int i = 0; i <= lines.length; i++) {
+            if (lines[i].contains(new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(date))) {
+                return Integer.parseInt(Between(lines[i - (TYPE - 3)], ": ", ","));
+            }
+        }
+
+        if(Country.equals("")) switch (TYPE) {
+            case ACTIVE:
+                return Integer.parseInt(Between(lines[3], ": ", ",")) -
+                        (Integer.parseInt(Between(lines[7], ": ", ",")) +
+                                Integer.parseInt(Between(lines[5], ": ", ",")));
+
+            case RECOVERED:
+                return Integer.parseInt(Between(lines[7], ": ", ","));
+
+            case DEAD:
+                return Integer.parseInt(Between(lines[5], ": ", ","));
+
+            case TOTAL:
+                return Integer.parseInt(Between(lines[3], ": ", ","));
+        }
+        return -1;
     }
 
     private String Between(String str, String open, String close) {
