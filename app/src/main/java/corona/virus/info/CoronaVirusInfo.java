@@ -15,7 +15,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 import java.util.Objects;
-import java.util.concurrent.TimeoutException;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -69,9 +68,11 @@ public class CoronaVirusInfo {
         while (temp == null) {
         }
         String[] lines = temp.split(Objects.requireNonNull(System.getProperty("line.separator")));
+        temp = null;
         if(lines[0].contains("code") && lines[0].contains("message")) throw new RuntimeException("Http error occured : " + lines[0]);
-        if (!Country.equals("") && date == null)
+        if (!Country.equals("") && date == null) {
             return Integer.parseInt(Between(lines[lines.length - TYPE], ": ", ","));
+        }
 
         if(date != null ) Log.d("test",new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(date.getTime()));
         for (int i = 0; i < lines.length; i++) {
