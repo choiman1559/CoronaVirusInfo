@@ -52,7 +52,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.github.choiman1559:CoronaVirusInfo:0.1.4' //add this line
+    implementation 'com.github.choiman1559:CoronaVirusInfo:0.1.5' //add this line
 }
 ```
 
@@ -61,7 +61,12 @@ Lastly, re-sync project with gradle files.
 ```
 public int getInt(String Country, int TYPE)
 ```
-get corona virus infomations by integer.
+Returns the most recent corona virus information as an integer.
+
+```
+public int getInt(String Country,int TYPE,Calender date)
+```
+Corona virus information on the specified date is returned as an integer.
 
 #### arguments datails :
 
@@ -75,6 +80,8 @@ get corona virus infomations by integer.
     | RECOVERED | Returns the number of people recovered | 5|
     | DEAD | Returns the number of people killed by the virus | 6|
     | TOTAL | Returns the total number of infected people | 7|
+    
+- ```Calender date``` Specifies the date of the information to be returned. The format of the date is ```yyyy-MM-dd```, and If the argument is null, ```public int getInt(String Country,int TYPE,Calender date)``` will be behave the same as ```public int getInt(String Country, int TYPE)```.
 
 ### example
 ``` 
