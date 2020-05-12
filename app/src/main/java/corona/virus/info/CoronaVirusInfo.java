@@ -1,7 +1,5 @@
 package corona.virus.info;
 
-import android.util.Log;
-
 import androidx.annotation.IntDef;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresPermission;
@@ -45,8 +43,9 @@ public class CoronaVirusInfo {
     }
 
     @RequiresPermission(INTERNET)
-    public int getInt(@CountryCode.Country String Country, @TYPE int TYPE, @Nullable Calendar date) {
-        if(Country.equals("") && date != null) return -1;
+    public int getInt(@CountryCode.Country_withoutGlobal String Country, @TYPE int TYPE, @Nullable Calendar date) {
+        if(Country.equals("") && date != null)
+            throw new IllegalArgumentException("if you're using \"Country.Global\" argument, value of \"Calender date\" must be always \"null\"!");
         String url = !Country.equals("") ? "https://api.covid19api.com/country/" + Country : "https://api.covid19api.com/summary";
 
         OkHttpClient okHttpClient = new OkHttpClient();
@@ -65,51 +64,49 @@ public class CoronaVirusInfo {
                 }
             }
         });
-        while (temp == null) {
-        }
+        while (temp == null) { }
         String[] lines = temp.split(Objects.requireNonNull(System.getProperty("line.separator")));
         temp = null;
+
         if(lines[0].contains("code") && lines[0].contains("message")) throw new RuntimeException("Http error occured : " + lines[0]);
         if (!Country.equals("") && date == null) {
-            return Integer.parseInt(Between(lines[lines.length - TYPE], ": ", ","));
+            return Integer.parseInt(Between(lines[lines.length - TYPE]));
         }
-        
+
         for (int i = 0; i < lines.length; i++) {
-            if (date != null) {
-            if (lines[i].contains(new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(date.getTime()))) {
-                return Integer.parseInt(Between(lines[i - (TYPE - 3)], ": ", ","));
+            if (date != null && lines[i].contains(new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(date.getTime()))) {
+                return Integer.parseInt(Between(lines[i - (TYPE - 3)]));
                 }
-            }
             if(Country.equals("") && !lines[i].contains(",")) lines[i] = lines[i] + ",";
         }
 
         if(Country.equals("")) switch (TYPE) {
             case ACTIVE:
-                return Integer.parseInt(Between(lines[3], ": ", ",")) -
-                        (Integer.parseInt(Between(lines[7], ": ", ",")) +
-                                Integer.parseInt(Between(lines[5], ": ", ",")));
+                return Integer.parseInt(Between(lines[3])) -
+                        (Integer.parseInt(Between(lines[7])) +
+                                Integer.parseInt(Between(lines[5])));
 
             case RECOVERED:
-                return Integer.parseInt(Between(lines[7], ": ", ","));
+                return Integer.parseInt(Between(lines[7]));
 
             case DEAD:
-                return Integer.parseInt(Between(lines[5], ": ", ","));
+                return Integer.parseInt(Between(lines[5]));
 
             case TOTAL:
-                return Integer.parseInt(Between(lines[3], ": ", ","));
+                return Integer.parseInt(Between(lines[3]));
         }
         return -1;
     }
 
-    private String Between(String str, String open, String close) {
-        if (str == null || open == null || close == null) {
+    private String Between(String str) {
+        if (str == null) {
             return null;
         }
-        int start = str.indexOf(open);
+        int start = str.indexOf(": ");
         if (start != -1) {
-            int end = str.indexOf(close, start + open.length());
+            int end = str.indexOf(",", start + ": ".length());
             if (end != -1) {
-                return str.substring(start + open.length(), end);
+                return str.substring(start + ": ".length(), end);
             }
         }
         return null;
