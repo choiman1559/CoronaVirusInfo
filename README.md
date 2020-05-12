@@ -83,6 +83,10 @@ Corona virus information on the specified date is returned as an integer.
     
 - ***```Calender date```*** Specifies the date of the information to be returned. The format of the date is ```yyyy-MM-dd```, and If the argument is null, ```public int getInt(String Country,int TYPE,Calender date)``` will be behave the same as ```public int getInt(String Country, int TYPE)```.
 
+#### Limitations / additions
+* If the value of the ```String Country``` argument is ```CountryCode.Global```, the ```Calender date``` argument cannot be used.
+* If a non-response condition such as ANR occurs due to the use of the library, the problem is that it takes time for the library to receive the value online, there is no fundamental solution, and if the problem should be avoided, Use Multi-Thread function such as ```Runnable``` and ```AsyncTask``` to solve.
+
 ### example
 ``` 
 public class MainActivity extends AppCompatActivity {
@@ -110,4 +114,4 @@ public class MainActivity extends AppCompatActivity {
 ```
 #### example - result 
 
-<img src="https://i.imgur.com/jQ77yZK.jpg" alt="drawing" width="200">
+<img src="https://i.imgur.com/RriDkQq.jpg" alt="drawing" width="200">
