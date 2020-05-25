@@ -68,7 +68,7 @@ public int getInt(String Country,int TYPE,Calender date)
 ```
 Corona virus information on the specified date is returned as an integer.
 
-#### arguments datails :
+#### arguments details :
 
 - ***```String Country```*** : The value of this parameter uses [alpha-2 code](https://www.iban.com/country-codes) according to ISO 3166, and the country name must be one of those declared in [CountryCode.java](https://github.com/choiman1559/CoronaVirusInfo/blob/master/app/src/main/java/corona/virus/info/CountryCode.java).
 
