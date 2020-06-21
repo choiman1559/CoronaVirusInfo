@@ -68,7 +68,7 @@ public int getInt(String Country,int TYPE,Calender date)
 ```
 Corona virus information on the specified date is returned as an integer.
 
-#### arguments datails :
+#### arguments details :
 
 - ***```String Country```*** : The value of this parameter uses [alpha-2 code](https://www.iban.com/country-codes) according to ISO 3166, and the country name must be one of those declared in [CountryCode.java](https://github.com/choiman1559/CoronaVirusInfo/blob/master/app/src/main/java/corona/virus/info/CountryCode.java).
 
@@ -82,6 +82,10 @@ Corona virus information on the specified date is returned as an integer.
     | TOTAL | Returns the total number of infected people | 7|
     
 - ***```Calender date```*** Specifies the date of the information to be returned. The format of the date is ```yyyy-MM-dd```, and If the argument is null, ```public int getInt(String Country,int TYPE,Calender date)``` will be behave the same as ```public int getInt(String Country, int TYPE)```.
+
+#### Limitations / additions
+* If the value of the ```String Country``` argument is ```CountryCode.Global```, the ```Calender date``` argument cannot be used.
+* If a non-response condition such as ANR occurs due to the use of the library, the problem is that it takes time for the library to receive the value online, there is no fundamental solution, and if the problem should be avoided, Use Multi-Thread function such as ```Runnable``` and ```AsyncTask``` to solve.
 
 ### example
 ``` 
@@ -110,4 +114,4 @@ public class MainActivity extends AppCompatActivity {
 ```
 #### example - result 
 
-<img src="https://i.imgur.com/jQ77yZK.jpg" alt="drawing" width="200">
+<img src="https://i.imgur.com/RriDkQq.jpg" alt="drawing" width="200">
