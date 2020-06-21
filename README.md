@@ -79,6 +79,12 @@ public int getInt(String Country,int TYPE,Calender date,int limitMs)
 ```
 Corona virus information on the specified date is returned as an integer with custom time limit when get data from web.
 _____________________________________________________________________________
+```
+@Deprecated
+public int getInt_old(String Country, int TYPE, Calendar date)
+```
+_(DEPRECATED)_ Corona virus information on the specified date is returned as an integer.
+_____________________________________________________________________________
 
 #### arguments details :
 
