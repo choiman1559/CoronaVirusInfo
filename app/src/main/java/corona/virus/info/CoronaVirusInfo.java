@@ -25,6 +25,11 @@ import okhttp3.Response;
 
 import static android.Manifest.permission.INTERNET;
 
+/**
+ * @author Choiman1559
+ * github.com/choiman1559
+ */
+
 public class CoronaVirusInfo {
 
     @Retention(RetentionPolicy.SOURCE)

@@ -5,14 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a1e4a43a-e122-4582-a55a-5b3a5d92e810" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/corona/virus/info/CoronaVirusInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/corona/virus/info/CoronaVirusInfo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -283,7 +277,21 @@
       <option name="project" value="LOCAL" />
       <updated>1592759626165</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="jitpack test build">
+      <created>1592760629158</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1592760629158</updated>
+    </task>
+    <task id="LOCAL-00012" summary="jitpack test build">
+      <created>1592760636077</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1592760636077</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -308,10 +316,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="jitpack test build" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="486" y="25" width="761" height="958" key="CommitChangelistDialog2" timestamp="1592760628808">
+    <state x="486" y="25" width="761" height="958" key="CommitChangelistDialog2" timestamp="1592760635933">
       <screen x="0" y="25" width="1920" height="989" />
     </state>
-    <state x="486" y="25" width="761" height="958" key="CommitChangelistDialog2/0.25.1920.989@0.25.1920.989" timestamp="1592760628808" />
+    <state x="486" y="25" width="761" height="958" key="CommitChangelistDialog2/0.25.1920.989@0.25.1920.989" timestamp="1592760635933" />
     <state x="743" y="277" width="424" height="480" key="FileChooserDialogImpl" timestamp="1592743796657">
       <screen x="0" y="25" width="1920" height="989" />
     </state>
@@ -332,10 +340,10 @@
       <screen x="0" y="25" width="1920" height="989" />
     </state>
     <state width="1571" height="206" key="GridCell.Tab.0.right/0.25.1920.989@0.25.1920.989" timestamp="1592752375673" />
-    <state x="555" y="254" width="800" height="527" key="Vcs.Push.Dialog.v2" timestamp="1592759629764">
+    <state x="555" y="254" width="800" height="527" key="Vcs.Push.Dialog.v2" timestamp="1592760637869">
       <screen x="0" y="25" width="1920" height="989" />
     </state>
-    <state x="555" y="254" width="800" height="527" key="Vcs.Push.Dialog.v2/0.25.1920.989@0.25.1920.989" timestamp="1592759629764" />
+    <state x="555" y="254" width="800" height="527" key="Vcs.Push.Dialog.v2/0.25.1920.989@0.25.1920.989" timestamp="1592760637869" />
     <state x="623" y="241" width="672" height="678" key="search.everywhere.popup" timestamp="1592740725295">
       <screen x="0" y="25" width="1920" height="989" />
     </state>
