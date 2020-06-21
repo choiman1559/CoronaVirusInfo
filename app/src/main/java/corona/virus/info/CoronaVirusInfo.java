@@ -88,7 +88,7 @@ public class CoronaVirusInfo {
         try {
             JSONArray array = new JSONArray(json);
             if (!Country.equals("") && date == null) {
-                JSONObject data = new JSONObject(array.get(array.length()).toString());
+                JSONObject data = new JSONObject(array.get(array.length() - 1).toString());
                 return data.getInt(getType(TYPE));
             }
 
