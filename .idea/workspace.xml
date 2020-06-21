@@ -5,14 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a1e4a43a-e122-4582-a55a-5b3a5d92e810" name="Default Changelist" comment="fixed bugs">
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/CoronaVirusInfo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CoronaVirusInfo.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/corona/virus/info/CoronaVirusInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/corona/virus/info/CoronaVirusInfo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -20,7 +14,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="5.4_FWVGA_API_24" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="1f55bc1a" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -104,7 +98,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/Android/Sdk" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../CoronavTest" />
     <property name="project.structure.last.edited" value="Build Variants" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -271,22 +265,26 @@
     <option name="LAST_COMMIT_MESSAGE" value="fixed jitpack errors" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1866" height="245" key="GridCell.Tab.0.bottom" timestamp="1592739767102">
+    <state x="743" y="277" width="424" height="480" key="FileChooserDialogImpl" timestamp="1592741258819">
       <screen x="0" y="25" width="1920" height="989" />
     </state>
-    <state width="1866" height="245" key="GridCell.Tab.0.bottom/0.25.1920.989@0.25.1920.989" timestamp="1592739767102" />
-    <state width="1866" height="245" key="GridCell.Tab.0.center" timestamp="1592739767102">
+    <state x="743" y="277" width="424" height="480" key="FileChooserDialogImpl/0.25.1920.989@0.25.1920.989" timestamp="1592741258819" />
+    <state width="1866" height="245" key="GridCell.Tab.0.bottom" timestamp="1592743303155">
       <screen x="0" y="25" width="1920" height="989" />
     </state>
-    <state width="1866" height="245" key="GridCell.Tab.0.center/0.25.1920.989@0.25.1920.989" timestamp="1592739767102" />
-    <state width="1866" height="245" key="GridCell.Tab.0.left" timestamp="1592739767101">
+    <state width="1866" height="245" key="GridCell.Tab.0.bottom/0.25.1920.989@0.25.1920.989" timestamp="1592743303155" />
+    <state width="1866" height="245" key="GridCell.Tab.0.center" timestamp="1592743303154">
       <screen x="0" y="25" width="1920" height="989" />
     </state>
-    <state width="1866" height="245" key="GridCell.Tab.0.left/0.25.1920.989@0.25.1920.989" timestamp="1592739767101" />
-    <state width="1866" height="245" key="GridCell.Tab.0.right" timestamp="1592739767102">
+    <state width="1866" height="245" key="GridCell.Tab.0.center/0.25.1920.989@0.25.1920.989" timestamp="1592743303154" />
+    <state width="1866" height="245" key="GridCell.Tab.0.left" timestamp="1592743303152">
       <screen x="0" y="25" width="1920" height="989" />
     </state>
-    <state width="1866" height="245" key="GridCell.Tab.0.right/0.25.1920.989@0.25.1920.989" timestamp="1592739767102" />
+    <state width="1866" height="245" key="GridCell.Tab.0.left/0.25.1920.989@0.25.1920.989" timestamp="1592743303152" />
+    <state width="1866" height="245" key="GridCell.Tab.0.right" timestamp="1592743303154">
+      <screen x="0" y="25" width="1920" height="989" />
+    </state>
+    <state width="1866" height="245" key="GridCell.Tab.0.right/0.25.1920.989@0.25.1920.989" timestamp="1592743303154" />
     <state x="623" y="241" width="672" height="678" key="search.everywhere.popup" timestamp="1592740725295">
       <screen x="0" y="25" width="1920" height="989" />
     </state>

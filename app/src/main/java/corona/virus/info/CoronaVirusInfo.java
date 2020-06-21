@@ -11,6 +11,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 import java.util.Objects;
 
@@ -74,8 +75,10 @@ public class CoronaVirusInfo {
             }
         });
         Calendar stopwatch = Calendar.getInstance();
+        stopwatch.setTime(new Date(System.currentTimeMillis()));
         stopwatch.add(Calendar.SECOND,limitMs / 1000);
-        while (temp == null) { if(Calendar.getInstance().getTimeInMillis() - stopwatch.getTimeInMillis() <= 0) return -2; }
+
+        while (temp == null) { if(System.currentTimeMillis() - stopwatch.getTimeInMillis() <= 0) return -2; }
         String[] lines = temp.split(Objects.requireNonNull(System.getProperty("line.separator")));
         temp = null;
 
