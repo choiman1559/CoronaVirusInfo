@@ -1,10 +1,13 @@
 package corona.virus.info;
 
+import android.util.Log;
+
 import androidx.annotation.IntDef;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresPermission;
 
 import org.jetbrains.annotations.NotNull;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.lang.annotation.Retention;
@@ -79,7 +82,11 @@ public class CoronaVirusInfo {
         stopwatch.add(Calendar.SECOND,limitMs / 1000);
 
         while (temp == null) { if(stopwatch.getTimeInMillis() - System.currentTimeMillis() <= 0) return -2; }
-        String[] lines = temp.split(Objects.requireNonNull(System.getProperty("line.separator")));
+        String[] lines = null;
+        try { lines = new JSONObject(temp).toString().split(Objects.requireNonNull(System.getProperty("line.separator")));
+        Log.d("json",new JSONObject(temp).toString()); }
+        catch (Exception e) { e.printStackTrace(); }
+        if(lines == null) return -1;
         temp = null;
 
         if(lines[0].contains("code") && lines[0].contains("message")) throw new RuntimeException("Http error occured : " + lines[0]);
