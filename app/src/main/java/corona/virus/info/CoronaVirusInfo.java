@@ -90,13 +90,14 @@ public class CoronaVirusInfo {
         temp = null;
 
         try {
-            JSONArray array = new JSONArray(json);
             if (!Country.equals("") && date == null) {
+                JSONArray array = new JSONArray(json);
                 JSONObject data = new JSONObject(array.get(array.length() - 1).toString());
                 return data.getInt(getType(TYPE));
             }
 
             if(date != null) {
+                JSONArray array = new JSONArray(json);
                 for (int i = 0; i < array.length(); i++) {
                     JSONObject data = new JSONObject(array.get(i).toString());
                     if (data.getString("Date").contains(new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(date.getTime()))) {
@@ -106,7 +107,7 @@ public class CoronaVirusInfo {
             }
 
             if(Country.equals("")) {
-                JSONObject data = new JSONArray(json).getJSONObject(0).getJSONObject("Global");
+                JSONObject data = new JSONObject(json).getJSONObject("Global");
                 switch (TYPE) {
                     case ACTIVE:
                         return  data.getInt("TotalConfirmed")
