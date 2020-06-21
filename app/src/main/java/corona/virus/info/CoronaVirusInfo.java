@@ -40,22 +40,26 @@ public class CoronaVirusInfo {
     volatile String temp = null;
 
     @RequiresPermission(INTERNET)
-    public int getInt(@CountryCode.Country String Country,@TYPE int TYPE, int limitMs) {
-        return getInt(Country,TYPE,null,limitMs);
-    }
-
-    @RequiresPermission(INTERNET)
     public int getInt(@CountryCode.Country String Country, @TYPE int TYPE) {
-        return getInt(Country, TYPE, null,3600);
+        return Calculate(Country, TYPE, null,3600);
     }
 
     @RequiresPermission(INTERNET)
-    public int getInt(@CountryCode.Country String Country,@TYPE int TYPE,@Nullable Calendar date) {
-        return getInt(Country,TYPE,date,3600);
+    public int getInt(@CountryCode.Country String Country,@TYPE int TYPE, int limitMs) {
+        return Calculate(Country,TYPE,null,limitMs);
     }
 
     @RequiresPermission(INTERNET)
-    public int getInt(@CountryCode.Country_withoutGlobal String Country, @TYPE int TYPE, @Nullable Calendar date, int limitMs) {
+    public int getInt(@CountryCode.Country_withoutGlobal String Country,@TYPE int TYPE, Calendar date) {
+        return Calculate(Country,TYPE,date,3600);
+    }
+
+    @RequiresPermission(INTERNET)
+    public int getInt(@CountryCode.Country_withoutGlobal String Country,@TYPE int TYPE,Calendar date, int limitMs) {
+        return Calculate(Country,TYPE,date,limitMs);
+    }
+
+    private int Calculate(String Country, int TYPE, @Nullable Calendar date, int limitMs) {
         if(Country.equals("") && date != null)
             throw new IllegalArgumentException("if you're using \"Country.Global\" argument, value of \"Calender date\" must be always \"null\"!");
         String url = !Country.equals("") ? "https://api.covid19api.com/country/" + Country : "https://api.covid19api.com/summary";
@@ -70,7 +74,7 @@ public class CoronaVirusInfo {
             @Override
             public void onResponse(@NotNull Call call, @NotNull final Response response) {
                 try {
-                    temp = response.body().string();
+                    temp = Objects.requireNonNull(response.body()).string();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -92,15 +96,17 @@ public class CoronaVirusInfo {
                 return data.getInt(getType(TYPE));
             }
 
-            for(int i = 0;i < array.length();i++) {
-                JSONObject data = new JSONObject(array.get(i).toString());
-                if(data.getString("Date").contains(new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(date.getTime()))) {
-                    return data.getInt(getType(TYPE));
+            if(date != null) {
+                for (int i = 0; i < array.length(); i++) {
+                    JSONObject data = new JSONObject(array.get(i).toString());
+                    if (data.getString("Date").contains(new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(date.getTime()))) {
+                        return data.getInt(getType(TYPE));
+                    }
                 }
             }
 
             if(Country.equals("")) {
-                JSONObject data = new JSONObject(json).getJSONObject("Global");
+                JSONObject data = new JSONArray(json).getJSONObject(0).getJSONObject("Global");
                 switch (TYPE) {
                     case ACTIVE:
                         return  data.getInt("TotalConfirmed")
@@ -114,7 +120,6 @@ public class CoronaVirusInfo {
 
                     case TOTAL:
                         return data.getInt("TotalConfirmed");
-
                 }
             }
 
@@ -128,7 +133,7 @@ public class CoronaVirusInfo {
 
     @Deprecated
     @RequiresPermission(INTERNET)
-    public int getInt_old(@CountryCode.Country_withoutGlobal String Country, @TYPE int TYPE, @Nullable Calendar date, int limitMs) {
+    public int getInt_old(@CountryCode.Country String Country, @TYPE int TYPE, @Nullable Calendar date) {
         if(Country.equals("") && date != null)
             throw new IllegalArgumentException("if you're using \"Country.Global\" argument, value of \"Calender date\" must be always \"null\"!");
         String url = !Country.equals("") ? "https://api.covid19api.com/country/" + Country : "https://api.covid19api.com/summary";
@@ -143,17 +148,14 @@ public class CoronaVirusInfo {
             @Override
             public void onResponse(@NotNull Call call, @NotNull final Response response) {
                 try {
-                    temp = response.body().string();
+                    temp = Objects.requireNonNull(response.body()).string();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
         });
-        Calendar stopwatch = Calendar.getInstance();
-        stopwatch.setTime(new Date(System.currentTimeMillis()));
-        stopwatch.add(Calendar.SECOND,limitMs / 1000);
 
-        while (temp == null) { if(stopwatch.getTimeInMillis() - System.currentTimeMillis() <= 0) return -2; }
+        while (true) { if(temp != null) break; }
         String[] lines = null;
         try { lines = new JSONObject(temp).toString().split(Objects.requireNonNull(System.getProperty("line.separator"))); }
         catch (Exception e) { e.printStackTrace(); }
@@ -192,21 +194,19 @@ public class CoronaVirusInfo {
 
     private String getType(@TYPE int type) {
         switch (type) {
-            case 7:
+            case TOTAL:
                 return "Confirmed";
 
-            case 6:
+            case DEAD:
                 return "Deaths";
 
-            case 5:
+            case RECOVERED:
                 return "Recovered";
 
-            case 4:
+            case ACTIVE:
                 return "Active";
-
-            default:
-                return null;
         }
+        return "";
     }
 
     private String Between(String str) {
