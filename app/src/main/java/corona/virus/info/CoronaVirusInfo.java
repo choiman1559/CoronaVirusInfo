@@ -99,22 +99,23 @@ public class CoronaVirusInfo {
                 }
             }
 
-            String[] lines = json.split(Objects.requireNonNull(System.getProperty("line.separator")));
+            if(Country.equals("")) {
+                JSONObject data = new JSONObject(json).getJSONObject("Global");
+                switch (TYPE) {
+                    case ACTIVE:
+                        return  data.getInt("TotalConfirmed")
+                                - (data.getInt("TotalRecovered") + data.getInt("TotalDeaths"));
 
-            if(Country.equals("")) switch (TYPE) {
-                case ACTIVE:
-                    return Integer.parseInt(Between(lines[3])) -
-                            (Integer.parseInt(Between(lines[7])) +
-                                    Integer.parseInt(Between(lines[5])));
+                    case RECOVERED:
+                        return data.getInt("TotalRecovered");
 
-                case RECOVERED:
-                    return Integer.parseInt(Between(lines[7]));
+                    case DEAD:
+                        return data.getInt("TotalDeaths");
 
-                case DEAD:
-                    return Integer.parseInt(Between(lines[5]));
+                    case TOTAL:
+                        return data.getInt("TotalConfirmed");
 
-                case TOTAL:
-                    return Integer.parseInt(Between(lines[3]));
+                }
             }
 
         } catch (Exception e) {
