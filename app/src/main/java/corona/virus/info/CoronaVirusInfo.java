@@ -36,14 +36,23 @@ public class CoronaVirusInfo {
 
     volatile String temp = null;
 
-
     @RequiresPermission(INTERNET)
-    public int getInt(@CountryCode.Country String Country, @TYPE int TYPE) {
-        return getInt(Country, TYPE, null);
+    public int getInt(@CountryCode.Country String Country,@TYPE int TYPE, int limitMs) {
+        return getInt(Country,TYPE,null,limitMs);
     }
 
     @RequiresPermission(INTERNET)
-    public int getInt(@CountryCode.Country_withoutGlobal String Country, @TYPE int TYPE, @Nullable Calendar date) {
+    public int getInt(@CountryCode.Country String Country, @TYPE int TYPE) {
+        return getInt(Country, TYPE, null,3600);
+    }
+
+    @RequiresPermission(INTERNET)
+    public int getInt(@CountryCode.Country String Country,@TYPE int TYPE,@Nullable Calendar date) {
+        return getInt(Country,TYPE,date,3600);
+    }
+
+    @RequiresPermission(INTERNET)
+    public int getInt(@CountryCode.Country_withoutGlobal String Country, @TYPE int TYPE, @Nullable Calendar date, int limitMs) {
         if(Country.equals("") && date != null)
             throw new IllegalArgumentException("if you're using \"Country.Global\" argument, value of \"Calender date\" must be always \"null\"!");
         String url = !Country.equals("") ? "https://api.covid19api.com/country/" + Country : "https://api.covid19api.com/summary";
@@ -64,7 +73,9 @@ public class CoronaVirusInfo {
                 }
             }
         });
-        while (temp == null) { }
+        Calendar stopwatch = Calendar.getInstance();
+        stopwatch.add(Calendar.SECOND,limitMs / 1000);
+        while (temp == null) { if(Calendar.getInstance().getTimeInMillis() - stopwatch.getTimeInMillis() <= 0) return -2; }
         String[] lines = temp.split(Objects.requireNonNull(System.getProperty("line.separator")));
         temp = null;
 
