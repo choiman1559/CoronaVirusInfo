@@ -78,7 +78,7 @@ public class CoronaVirusInfo {
         stopwatch.setTime(new Date(System.currentTimeMillis()));
         stopwatch.add(Calendar.SECOND,limitMs / 1000);
 
-        while (temp == null) { if(System.currentTimeMillis() - stopwatch.getTimeInMillis() <= 0) return -2; }
+        while (temp == null) { if(stopwatch.getTimeInMillis() - System.currentTimeMillis() <= 0) return -2; }
         String[] lines = temp.split(Objects.requireNonNull(System.getProperty("line.separator")));
         temp = null;
 
