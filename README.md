@@ -52,21 +52,39 @@ android {
 }
 
 dependencies {
-    implementation 'com.github.choiman1559:CoronaVirusInfo:0.1.5' //add this line
+    implementation 'com.github.choiman1559:CoronaVirusInfo:0.2.1' //add this line
 }
 ```
 
 Lastly, re-sync project with gradle files.
 ## 2. Usage
+
 ```
 public int getInt(String Country, int TYPE)
 ```
-Returns the most recent corona virus information as an integer.
-
+Returns the most recent corona virus information as an integer. (time limit is 3.6 seconds.)
+_____________________________________________________________________________
+```
+public int getInt(String Country, int TYPE, int limitMs)
+```
+Returns the most recent corona virus information as an integer with custom time limit when get data from web.
+_____________________________________________________________________________
 ```
 public int getInt(String Country,int TYPE,Calender date)
 ```
-Corona virus information on the specified date is returned as an integer.
+Corona virus information on the specified date is returned as an integer. (time limit is 3.6 seconds.)
+_____________________________________________________________________________
+```
+public int getInt(String Country,int TYPE,Calender date,int limitMs)
+```
+Corona virus information on the specified date is returned as an integer with custom time limit when get data from web.
+_____________________________________________________________________________
+```
+@Deprecated
+public int getInt_old(String Country, int TYPE, Calendar date)
+```
+_(DEPRECATED)_ Corona virus information on the specified date is returned as an integer.
+_____________________________________________________________________________
 
 #### arguments details :
 
@@ -83,7 +101,15 @@ Corona virus information on the specified date is returned as an integer.
     
 - ***```Calender date```*** Specifies the date of the information to be returned. The format of the date is ```yyyy-MM-dd```, and If the argument is null, ```public int getInt(String Country,int TYPE,Calender date)``` will be behave the same as ```public int getInt(String Country, int TYPE)```.
 
+- ***```int limitsMs```*** It measures the time to get json data from the web and returns a specific value (usually -2) when the specified time (default 3600 ms(=3.6 seconds)) is exceeded.
+
 #### Limitations / additions
+* Specified error return value
+    | Value (int) | Meaning |
+    | ------| ----- |
+    | -1 | For some reasons, error occured when processing json data. See stacktrace to cause. |
+    | -2 | While loading json data from web, it exceeded the specified time.  |
+    | ETC | Request processed normally |
 * If the value of the ```String Country``` argument is ```CountryCode.Global```, the ```Calender date``` argument cannot be used.
 * If a non-response condition such as ANR occurs due to the use of the library, the problem is that it takes time for the library to receive the value online, there is no fundamental solution, and if the problem should be avoided, Use Multi-Thread function such as ```Runnable``` and ```AsyncTask``` to solve.
 
@@ -104,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
         String str = "Corona Virus info example : \n";
             str = str + "South Korea, 2020/04/24 Total confirmed : " + new CoronaVirusInfo().getInt(CountryCode.South_Korea, CoronaVirusInfo.TOTAL, cal) + "\n";
             str = str + "Global, latest infomation of Recovered : " + new CoronaVirusInfo().getInt(CountryCode.Global, CoronaVirusInfo.DEAD) + "\n";
-            str = str + "USA, latest information of Actived : " + new CoronaVirusInfo().getInt(CountryCode.Italy, CoronaVirusInfo.ACTIVE) + "\n";
+            str = str + "Italy, latest information of Actived : " + new CoronaVirusInfo().getInt(CountryCode.Italy, CoronaVirusInfo.ACTIVE) + "\n";
             str = str + "Russia, 2020/04/24 Total Deaths : " + new CoronaVirusInfo().getInt(CountryCode.Russian_Federation, CoronaVirusInfo.DEAD,cal) + "\n";
 
         TextView textView = findViewById(R.id.textview);
