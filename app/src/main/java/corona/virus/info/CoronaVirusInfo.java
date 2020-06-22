@@ -65,8 +65,10 @@ public class CoronaVirusInfo {
     }
 
     private int Calculate(String Country, int TYPE, @Nullable Calendar date, int limitMs) {
-        if(Country.equals("") && date != null)
-            throw new IllegalArgumentException("if you're using \"Country.Global\" argument, value of \"Calender date\" must be always \"null\"!");
+        if(Country.equals("") && date != null) {
+            new IllegalArgumentException("if you're using \"Country.Global\" argument, value of \"Calender date\" must be always \"null\"!").printStackTrace();
+            return -1;
+        }
         String url = !Country.equals("") ? "https://api.covid19api.com/country/" + Country : "https://api.covid19api.com/summary";
 
         OkHttpClient okHttpClient = new OkHttpClient();
@@ -91,7 +93,10 @@ public class CoronaVirusInfo {
 
         while (temp == null) { if(stopwatch.getTimeInMillis() - System.currentTimeMillis() <= 0) return -2; }
         String json = temp;
-        if(json == null) return -1;
+        if(json == null) {
+            new NullPointerException("received data not must be null!").printStackTrace();
+            return -1;
+        }
         temp = null;
 
         try {
@@ -103,12 +108,15 @@ public class CoronaVirusInfo {
 
             if(date != null) {
                 JSONArray array = new JSONArray(json);
+                String dates = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(date.getTime());
                 for (int i = 0; i < array.length(); i++) {
                     JSONObject data = new JSONObject(array.get(i).toString());
-                    if (data.getString("Date").contains(new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(date.getTime()))) {
+                    if (data.getString("Date").contains(dates)) {
                         return data.getInt(getType(TYPE));
                     }
                 }
+                new IllegalArgumentException("Date " + dates + " not found in received data.").printStackTrace();
+                return -3;
             }
 
             if(Country.equals("")) {
@@ -134,6 +142,7 @@ public class CoronaVirusInfo {
             return -1;
         }
 
+        new IllegalStateException("Other undefined error.").printStackTrace();
        return -1;
     }
 

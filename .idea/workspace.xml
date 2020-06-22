@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a1e4a43a-e122-4582-a55a-5b3a5d92e810" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/corona/virus/info/CoronaVirusInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/corona/virus/info/CoronaVirusInfo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -14,7 +15,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="1f55bc1a" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="5.4_FWVGA_API_24" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -291,7 +292,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592760636077</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="jitpack test build">
+      <created>1592760800229</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1592760800229</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -316,37 +324,48 @@
     <option name="LAST_COMMIT_MESSAGE" value="jitpack test build" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="486" y="25" width="761" height="958" key="CommitChangelistDialog2" timestamp="1592760635933">
+    <state x="486" y="25" width="761" height="958" key="CommitChangelistDialog2" timestamp="1592760800057">
       <screen x="0" y="25" width="1920" height="989" />
     </state>
-    <state x="486" y="25" width="761" height="958" key="CommitChangelistDialog2/0.25.1920.989@0.25.1920.989" timestamp="1592760635933" />
+    <state x="486" y="25" width="761" height="958" key="CommitChangelistDialog2/0.25.1920.989@0.25.1920.989" timestamp="1592760800057" />
     <state x="743" y="277" width="424" height="480" key="FileChooserDialogImpl" timestamp="1592743796657">
       <screen x="0" y="25" width="1920" height="989" />
     </state>
     <state x="743" y="277" width="424" height="480" key="FileChooserDialogImpl/0.25.1920.989@0.25.1920.989" timestamp="1592743796657" />
-    <state width="1571" height="206" key="GridCell.Tab.0.bottom" timestamp="1592752375673">
+    <state width="1866" height="210" key="GridCell.Tab.0.bottom" timestamp="1592797061348">
       <screen x="0" y="25" width="1920" height="989" />
     </state>
-    <state width="1571" height="206" key="GridCell.Tab.0.bottom/0.25.1920.989@0.25.1920.989" timestamp="1592752375673" />
-    <state width="1571" height="206" key="GridCell.Tab.0.center" timestamp="1592752375673">
+    <state width="1866" height="210" key="GridCell.Tab.0.bottom/0.25.1920.989@0.25.1920.989" timestamp="1592797061348" />
+    <state width="1866" height="210" key="GridCell.Tab.0.center" timestamp="1592797061347">
       <screen x="0" y="25" width="1920" height="989" />
     </state>
-    <state width="1571" height="206" key="GridCell.Tab.0.center/0.25.1920.989@0.25.1920.989" timestamp="1592752375673" />
-    <state width="1571" height="206" key="GridCell.Tab.0.left" timestamp="1592752375672">
+    <state width="1866" height="210" key="GridCell.Tab.0.center/0.25.1920.989@0.25.1920.989" timestamp="1592797061347" />
+    <state width="1866" height="210" key="GridCell.Tab.0.left" timestamp="1592797061347">
       <screen x="0" y="25" width="1920" height="989" />
     </state>
-    <state width="1571" height="206" key="GridCell.Tab.0.left/0.25.1920.989@0.25.1920.989" timestamp="1592752375672" />
-    <state width="1571" height="206" key="GridCell.Tab.0.right" timestamp="1592752375673">
+    <state width="1866" height="210" key="GridCell.Tab.0.left/0.25.1920.989@0.25.1920.989" timestamp="1592797061347" />
+    <state width="1866" height="210" key="GridCell.Tab.0.right" timestamp="1592797061347">
       <screen x="0" y="25" width="1920" height="989" />
     </state>
-    <state width="1571" height="206" key="GridCell.Tab.0.right/0.25.1920.989@0.25.1920.989" timestamp="1592752375673" />
-    <state x="555" y="254" width="800" height="527" key="Vcs.Push.Dialog.v2" timestamp="1592760637869">
+    <state width="1866" height="210" key="GridCell.Tab.0.right/0.25.1920.989@0.25.1920.989" timestamp="1592797061347" />
+    <state x="555" y="254" width="800" height="527" key="Vcs.Push.Dialog.v2" timestamp="1592760801915">
       <screen x="0" y="25" width="1920" height="989" />
     </state>
-    <state x="555" y="254" width="800" height="527" key="Vcs.Push.Dialog.v2/0.25.1920.989@0.25.1920.989" timestamp="1592760637869" />
+    <state x="555" y="254" width="800" height="527" key="Vcs.Push.Dialog.v2/0.25.1920.989@0.25.1920.989" timestamp="1592760801915" />
     <state x="623" y="241" width="672" height="678" key="search.everywhere.popup" timestamp="1592740725295">
       <screen x="0" y="25" width="1920" height="989" />
     </state>
     <state x="623" y="241" width="672" height="678" key="search.everywhere.popup/0.25.1920.989@0.25.1920.989" timestamp="1592740725295" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/corona/virus/info/CoronaVirusInfo.java</url>
+          <line>46</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
