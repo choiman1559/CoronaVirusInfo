@@ -109,6 +109,7 @@ _____________________________________________________________________________
     | ------| ----- |
     | -1 | For some reasons, error occured when processing json data. See stacktrace to cause. |
     | -2 | While loading json data from web, it exceeded the specified time.  |
+    | -3 | The date received in ```Calender date``` could not be found in json. |
     | ETC | Request processed normally |
 * If the value of the ```String Country``` argument is ```CountryCode.Global```, the ```Calender date``` argument cannot be used.
 * If a non-response condition such as ANR occurs due to the use of the library, the problem is that it takes time for the library to receive the value online, there is no fundamental solution, and if the problem should be avoided, Use Multi-Thread function such as ```Runnable``` and ```AsyncTask``` to solve.
